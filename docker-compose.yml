@@ -3,4 +3,4 @@ services:
     cse-340-super-goggles:
         build: .
         volumes: 
-            - .:/cse-340-super-goggles
+            - ./assign1:/assign1
