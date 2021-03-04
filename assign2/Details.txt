@@ -1,0 +1,49 @@
+LEXICONS:
+
+PUBLIC = "public"
+PRIVATE = "private"
+EQUAL = "="
+COLON = ":"
+COMMA = ","
+SEMICOLON = ";"
+LBRACE = "{"
+RBRACE = "}"
+ID = letter (letter + digit)*
+
+SYNTAX:
+**Comments start as // and continue until \n is encountered
+**Global Variables are optional
+**Scopes have optional public and private Variables
+**Every Scope has a body which is a list of statements
+**Statements can be either simple assignment or another scope (nested)
+
+GRAMMER:
+
+program         -> global_vars scope
+global_vars     -> ε | var_list SEMICOLON
+var_list        -> ID | ID COMMA var_list
+scope           -> ID LBRACE public_vars private_vars stmt_list RBRACE
+public_vars     -> ε | PUBLIC COLON var_list SEMICOLON
+private_vars    -> ε | PRIVATE COLON var_list SEMICOLON
+stmt_list       -> stmt | stmt stmt_list
+stmt            -> ID EQUAL ID SEMICOLON | scope
+
+First Sets: * = ε
+FIRST(program)=         {}              {}              { *, ID }
+FIRST(global_vars)=     { * }           { *, ID }       { *, ID }       
+FIRST(var_list)=        { ID }          { ID }          { ID }          
+FIRST(scope)=           { ID }          { ID }          { ID }          
+FIRST(public_vars)=     { *, PUBLIC }   { *, PUBLIC }   { *, PUBLIC }   
+FIRST(private_vars)=    { *, PRIVATE }  { *, PRIVATE }  { *, PRIVATE }  
+FIRST(stmt_list)=       {}              { ID }          { ID }          
+FIRST(stmt)=            { ID }          { ID }          { ID }       
+
+Follow Sets:
+FOLLOW(program)=        { $ }
+FOLLOW(global_vars)=    { ID }
+FOLLOW(var_list)=       { SEMICOLON }
+FOLLOW(scope)=          { ID, $, RBRACE }
+FOLLOW(public_vars)=    { *, PRIVATE }
+FOLLOW(private_vars)=   { ID } 
+FOLLOW(stmt_list)=      { RBRACE } 
+FOLLOW(stmt)=           { ID, RBRACE }

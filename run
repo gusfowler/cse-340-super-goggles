@@ -1,3 +1,5 @@
 #!/bin/bash
 
-docker run -it --mount src="$(pwd)",target=/cse-340-super-goggles,type=bind .
+docker-compose up -d --build
+docker exec -it cse-340-super-goggles_compile_1 /bin/bash
+docker-compose down
