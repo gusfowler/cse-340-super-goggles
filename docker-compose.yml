@@ -1,12 +1,7 @@
 version: "3.9"
 services:
-<<<<<<< HEAD
-    compile:
-        build: ./build
-=======
     cse-340-super-goggles:
         build: ./dockerfile
->>>>>>> 97813db6444db0b90b2970f383b534ddb9ca0a9e
         volumes: 
             - ./assign1:/src/assign1
             - ./assign2:/src/assign2
