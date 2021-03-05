@@ -3,14 +3,16 @@
 
 class Parser {
     public:
+        void startParse(LexicalAnalyzer &lexer);
 
     private:
-        string parseProgram(LexicalAnalyzer lexer);
-        string parseGlobalVars(LexicalAnalyzer lexer);
-        string parseVarList(LexicalAnalyzer lexer);
-        string parseScope(LexicalAnalyzer lexer);
-        string parsePublicVars(LexicalAnalyzer lexer);
-        string parsePrivateVars(LexicalAnalyzer lexer);
-        string parseStmtList(LexicalAnalyzer lexer);
-        string parseStmt(LexicalAnalyzer lexer);
-}
+        std::string parseProgram(LexicalAnalyzer &lexer);
+        std::string parseGlobalVars(LexicalAnalyzer &lexer);
+        std::string parseVarList(LexicalAnalyzer &lexer);
+        std::string parseScope(LexicalAnalyzer &lexer);
+        std::string parsePublicVars(LexicalAnalyzer &lexer);
+        std::string parsePrivateVars(LexicalAnalyzer &lexer);
+        std::string parseStmtList(LexicalAnalyzer &lexer);
+        std::string parseStmt(LexicalAnalyzer &lexer);
+        void syntax_error();
+};
