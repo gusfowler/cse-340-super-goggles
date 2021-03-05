@@ -1,16 +1,16 @@
+#include <vector>
 #include "lexer.h"
 
 class Parser {
     public:
-        void startParse(LexicalAnalyzer lexer);
 
     private:
-        string parseProgram(Token t);
-        string parseGlobalVars(Token t);
-        string parseVarList(Token t);
-        string parseScope(Token t);
-        string parsePublicVars(Token t);
-        string parsePrivateVars(Token t);
-        string parseStmtList(Token t);
-        string parseStmt(Token t);
+        string parseProgram(LexicalAnalyzer lexer);
+        string parseGlobalVars(LexicalAnalyzer lexer);
+        string parseVarList(LexicalAnalyzer lexer);
+        string parseScope(LexicalAnalyzer lexer);
+        string parsePublicVars(LexicalAnalyzer lexer);
+        string parsePrivateVars(LexicalAnalyzer lexer);
+        string parseStmtList(LexicalAnalyzer lexer);
+        string parseStmt(LexicalAnalyzer lexer);
 }
