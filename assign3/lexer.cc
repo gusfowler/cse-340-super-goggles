@@ -396,7 +396,7 @@ bool LexicalAnalyzer::SkipComments()
       
          
     
-
+    return comments;
 }
 
 bool LexicalAnalyzer::IsKeyword(string s)
@@ -853,7 +853,7 @@ int parse_primary(void){
 }
 
 int parse_expression(void){
-    int tempI;
+    int tempI, tempI1, tempI2;
     
     token = lexer.GetToken();
     
@@ -978,6 +978,7 @@ int parse_case(void){
     }else{
         cout << "\n Syntax Error \n";
     }
+    return 0;
 }
 
 int parse_caselist(void){
@@ -1312,7 +1313,7 @@ int parse_program(void){
         //token.Print();
     }
 
-
+    return 0;
 }
 char null[] = "NULL";
 int main()

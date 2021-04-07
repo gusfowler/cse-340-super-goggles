@@ -16,7 +16,13 @@
 typedef enum { END_OF_FILE = 0,
     PUBLIC, PRIVATE, EQUAL, 
     COLON, COMMA, SEMICOLON,
-    LBRAC, RBRAC, ID, ERROR 
+    LBRACE, RBRACE, ID, ERROR,
+    REALNUM, NUM, NOT, PLUS,
+    MINUS, MULT, DIV, GTEQ,
+    GREATER, LTEQ, NOTEQUAL, LESS,
+    LPAREN, RPAREN, TR, FA,
+    CASE, SWITCH, WHILE, IF,
+    INT, REAL, BOO
 } TokenType;
 
 class Token {
@@ -40,7 +46,8 @@ class LexicalAnalyzer {
     Token tmp;
     InputBuffer input;
 
-    bool SkipSpaceorComment();
+    bool SkipSpace();
+    bool SkipComments();
     bool IsKeyword(std::string);
     TokenType FindKeywordIndex(std::string);
     Token ScanIdOrKeyword();

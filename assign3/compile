@@ -1,0 +1,5 @@
+#!/bin/bash
+
+g++ lexer.cc lexer.h inputbuf.cc inputbuf.h -o prog &> errors.txt
+./prog < tests/test01.txt > output.txt
+rm *.gch
