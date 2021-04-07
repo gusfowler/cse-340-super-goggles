@@ -1,5 +1,5 @@
 #!/bin/bash
 
 g++ lexer.cc lexer.h inputbuf.cc inputbuf.h -o prog &> errors.txt
-./prog < tests/test01.txt > output.txt
-rm *.gch
+/src/assign3/prog < /src/assign3/tests/test01.txt > /src/assign3/output.txt
+rm *.gch prog
