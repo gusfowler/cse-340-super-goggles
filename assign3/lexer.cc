@@ -1176,7 +1176,7 @@ int parse_body(void){
                 //printScope();
                 //deleteScope();
                 cout << "\n Rule parsed: body -> LBRACE stmt_list RBRACE \n";
-                return(0);
+                return 0;
             }else{
                 cout << "\n Syntax Error\n ";
                 return(0);
@@ -1190,7 +1190,7 @@ int parse_body(void){
             cout << "\n Syntax Error \n ";
             return(0);
         }
-
+    
 }
 
 
@@ -1287,6 +1287,7 @@ int parse_program(void){
     int tempI;
     while (token.token_type != END_OF_FILE)
     {
+        //printList();
         // Check first set of global_vars scope
             if(token.token_type == ID){
             tempTokenType = lexer.UngetToken(token);
@@ -1294,6 +1295,7 @@ int parse_program(void){
             cout << "\n Rule parsed: program -> global_vars scope \n";
             tempI = parse_globalVars();
             tempI = parse_body();
+            return 0;
                   
             }else if(token.token_type == LBRACE){
                 tempTokenType = lexer.UngetToken(token);
@@ -1301,7 +1303,7 @@ int parse_program(void){
                 cout << "\n Rule parsed: global_vars -> epsilon \n";
                 tempI = parse_body();
                 
-                
+                return 0;
         
             }else if(token.token_type == END_OF_FILE){
                 return(0);
@@ -1326,7 +1328,10 @@ int main()
     //memcpy(currentScope,global.c_str(),global.length()+1);
     //addScope();
         i = parse_program();
+        cout << "\nParsed!\n\nTable:" << endl; 
+        printList();
       cout << "\n End of Program \n";
+      return i;
     //printList();
     //free(symbolTable);
     //token = lexer.GetToken();

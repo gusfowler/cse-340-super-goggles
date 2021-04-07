@@ -1,5 +1,5 @@
 #!/bin/bash
 
 docker-compose up -d --build
-docker exec -it cse-340-super-goggles_compile_1 /bin/bash -c "/src/assign3/compile"
+docker exec -it cse-340-super-goggles_compile_1 /bin/bash -c "/bin/bash"
 docker-compose down
