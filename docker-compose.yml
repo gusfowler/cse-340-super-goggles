@@ -5,6 +5,7 @@ services:
         volumes: 
             - ./assign1:/src/assign1
             - ./assign2:/src/assign2
+            - ./assign3:/src/assign3
         stdin_open: true
         tty: true
         restart: always
