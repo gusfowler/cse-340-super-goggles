@@ -10,28 +10,13 @@
  Syntax Error 
 
  Rule parsed: var_decl -> var_list COLON type_name SEMICOLON
- Rule Parsed: var_decl_list -> var_decl var_decl_list 
-
- Rule Parsed: var_list -> ID 
-
- Syntax Error 
-
- Rule parsed: var_decl -> var_list COLON type_name SEMICOLON
  Rule Parsed: var_decl_list -> var_decl 
 
  Rule parsed: stmt -> assignment_stmt 
 
  Rule parsed: expression -> binary_operator expression expression 
 
- Rule parsed: binary_operator -> PLUS
-
- Rule parsed: expression -> primary 
-
- Rule parsed: primary -> ID
-
- Rule parsed: expression -> binary_operator expression expression 
-
- Rule parsed: binary_operator -> MULT
+ Rule parsed: binary_operator -> LESS
 
  Rule parsed: expression -> primary 
 
@@ -39,26 +24,7 @@
 
  Rule parsed: expression -> primary 
 
- Rule parsed: primary -> ID
-
- Syntax Error 
-
- Rule parsed: expression -> primary 
-
- Rule parsed: primary -> ID
-
- Rule parsed: expression -> binary_operator expression expression 
-
- Rule parsed: binary_operator -> EQUAL 
-
- Rule parsed: expression -> unary_operator expression 
-
- Rule parsed: unary_operator -> NOT
- Syntax Error 
-
- Syntax Error 
-
- Syntax Error 
+ Rule parsed: primary -> NUM 
 
  Syntax Error 
 
@@ -74,4 +40,4 @@ Table:
 
  Printing Symbol Table 
 
- Name: z Scope: 
+ Name: x Scope: 
